@@ -1,4 +1,7 @@
 MyFoodieCircle::Application.routes.draw do
+  get "standard_pages/home"
+  get "standard_pages/contact"
+  get "standard_pages/help"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
