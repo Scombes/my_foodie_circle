@@ -1,5 +1,5 @@
 MyFoodieCircle::Application.routes.draw do
-  get "users/new"
+  resources :users
   root 'standard_pages#home' 
   match '/contact', to: 'standard_pages#contact', via: 'get'
   match '/help', to: 'standard_pages#help', via: 'get'

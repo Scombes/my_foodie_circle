@@ -9,10 +9,12 @@
 </head>
 <body>
 	<%= render 'layouts/header' %>
-
+		<% flash.each do |key, value| %>
+        	<div id="margin-fix" class="alert alert-<%= key %>"><%= value %></div>
+      	<% end %>
 	<%= yield %>
 
 	<%= render 'layouts/footer' %>
-	
+	<%= debug(params) if Rails.env.development? %>
 </body>
 </html>
