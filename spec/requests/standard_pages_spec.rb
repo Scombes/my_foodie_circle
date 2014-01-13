@@ -4,28 +4,22 @@ require 'spec_helper'
 
 		let(:base_title) {"My Foodie Circle"}
 
-		describe "Home page" do
+		subject { page }
 
-			it "should have the title 'Home' " do
-				visit '/standard_pages/home'
-				expect(page).to_not have_title("#{base_title}| Home")
-			end
+  		describe "Home page" do
+    		before { visit root_path }
+			it { should have_title(full_title('')) }
+    		it { should_not have_title('| Home') }
   		end
 
   		describe "Contact page" do
-
-			it "should have the title 'Contact' " do
-				visit '/standard_pages/contact'
-				expect(page).to have_title("#{base_title} | Contact")
-			end
+    		before { visit contact_path }
+			it { should have_title(full_title('Contact')) }
   		end
 
-  		describe "Help Page" do
-
-			it "should have the title 'Help' " do
-				visit '/standard_pages/help'
-				expect(page).to have_title("#{base_title} | Help")
-			end
+  		describe "Help page" do
+    		before { visit help_path }
+			it { should have_title(full_title('Help')) }
   		end
 
 	end
