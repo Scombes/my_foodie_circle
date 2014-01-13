@@ -6,6 +6,6 @@ describe "UserPages" do
   	describe 'signup page' do
   		before {visit signup_path}
 
-  		it { should have_title(full_title('SIgn up')) }
+  		it { should have_title(full_title('Sign up')) }
   	end
 end
