@@ -1,0 +1,7 @@
+<li>
+	<span class="business_name"><%= restaurant.name %></span>
+	<span class="business_infor"><%= restaurant.address %> <%= restaurant.city %>, <%= restaurant.state %> <%= restaurant.postal %></span>
+	<span class="phone"><%= restaurant.phone %></span>
+	<span class="category"><%= restaurant.category %></span>
+	<span class="timestamp">Posted <%= time_ago_in_words(restaurant.created_at) %> ago.</span>
+</li>

@@ -8,7 +8,17 @@
 					<%= @user.name %>
 				</h3>
 			</section>
-		</aside>	
+		</aside>
+
+		<div class="col-md-8">
+			<% if @user.restaurants.any? %>
+			<h3>Reccomendations (<%= @user.restaurants.count %>)</h3>
+			<ol class='recomendations'>
+				<%= render @restaurants %>
+			</ol>
+			<%= will_paginate @restaurants %>
+			<% end %>
+		</div>	
 	</div>
 </div>
 
