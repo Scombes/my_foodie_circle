@@ -9,7 +9,7 @@ class StandardPagesController < ApplicationController
     @query=params[:query]
     if @query != nil
       @query_plused=params[:query].tr(' ', '+')
-      @response= HTTParty.get('https://maps.googleapis.com/maps/api/place/textsearch/json?query='+@query_plused+'&sensor=false&key=AIzaSyCpcL-60e_blJaX4hV3H-Uc-TPPhfISOQg')
+      @response= HTTParty.get('https://maps.googleapis.com/maps/api/place/textsearch/json?query='+@query_plused+'&sensor=false&key=AIzaSyAM451AbVOyNCPwVgwzzawgW65WE1lA7Wg')
     end
   end
 
