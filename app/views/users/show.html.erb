@@ -7,12 +7,14 @@
 					<%= gravatar_for @user %>
 					<%= @user.name %>
 				</h3>
+				<%= render 'shared/followers_stats' %>
 			</section>
 		</aside>
 
 		<div class="col-md-8">
+			<%= render 'follow_form' if signed_in? %>
 			<% if @user.restaurants.any? %>
-			<h3>Reccomendations (<%= @user.restaurants.count %>)</h3>
+			<h3>My Reccomendations (<%= @user.restaurants.count %>)</h3>
 			<ol class='recomendations'>
 				<%= render @restaurants %>
 			</ol>

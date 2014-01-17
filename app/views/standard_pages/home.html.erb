@@ -5,6 +5,7 @@
 			<aside>
 			<section>
 				<%= render 'shared/user_info' %>
+				<%= render 'shared/followers_stats' %>
 			</section>
 			<section>
 				<%= render 'shared/restaurant_add_form' %>
@@ -28,7 +29,7 @@
 		<div class="row centered">
 			<div class="col-lg-8 col-lg-offset-2">
   				<h1>My Foodie Circle</h1>
- 				 <h2>Finally, a restaurant recommendation service you can trust!</h2>
+ 				 <h2>Finally, a restaurant review service you can trust!</h2>
   				<p><%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %></p>
   			</div>	
   		</div>
@@ -41,6 +42,8 @@
 			<div class="row centered">
 				<div class="col-lg-8 col-lg-offset-2">
 					<p><%= image_tag('restaurant.png', :size => "50x50", :alt => "Restaurant Icon") %></p>
+					<h1>This site is still in development</h1>
+					<h2>For a sneek peak, please log in with demo@demo.com and password demo123</h2>
 					<h4>My Foodie Circle is about finding restaurants based on people you know.</h4>
 					<p>When visiting other sites, anybody can log on and review a restaurant. The problem is everybody is different.  Just because one person doesn't like it, doesn't mean that it is a bad restaurant. So, are you suppose to take the words of complete strangers? No, instead use this app to connect with your friends and find local restaurants that you will want to try.  Instead of relying on a bunch of anaymouse reviewers, you can trust the recommendations you get here, because they are from your friends.</p>
 				</div>

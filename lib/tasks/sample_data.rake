@@ -1,8 +1,14 @@
 namespace :db do 
 	desc "Sample data for databasse"
 	task populate: :environment do
+		make_users
+    	make_restaurants
+    	make_relationships
+    end
+end
 
-		User.create!(name: "Scott Combes",
+def make_users
+		admin = User.create!(name: "Scott Combes",
 					 email: "scott.combes@gmail.com",
 					 password: "foobar",
 					 password_confirmation: "foobar",
@@ -17,7 +23,9 @@ namespace :db do
 						password: password,
 						password_confirmation: password)
 		end
+end
 
+def make_restaurants
 		users = User.all(limit: 5 )
 		50.times do
 			name = "Test Restaurant"
@@ -37,5 +45,13 @@ namespace :db do
 														 category: category,
 														 note: note)}
 		end
-	end
+end
+
+def make_relationships
+		users = User.all
+  		user  = users.first
+  		followed_users = users[2..50]
+  		followers      = users[3..40]
+  		followed_users.each { |followed| user.follow!(followed) }
+  		followers.each      { |follower| follower.follow!(user) }
 end

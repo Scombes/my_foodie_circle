@@ -1,7 +1,12 @@
 MyFoodieCircle::Application.routes.draw do
-  resources :users
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
   resources  :sessions, only: [:new, :create, :destroy]
   resources :restaurants, only: [:create, :destroy]
+  resources :relationships, only: [:create, :destroy]
   root 'standard_pages#home' 
   match '/add', to: 'standard_pages#home', via: 'post'
   match '/add', to: 'standard_pages#home', via: 'get'
