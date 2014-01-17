@@ -15,6 +15,10 @@ gem 'will_paginate', '3.0.4'
 
 gem 'bootstrap-will_paginate'
 
+gem 'foursquare2'
+
+gem 'yajl-ruby'
+
 group :development, :test do
 	gem 'rspec-rails', '2.13.1'
 end

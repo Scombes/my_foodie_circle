@@ -12,6 +12,10 @@
 			<aside>
 		</div>
 		<div class="col-md-8">
+			<% if @query != nil %>
+            <%= render 'shared/query_return' %>
+          
+          <% end %>
 			<h1>Restaurants Reccomendations</h1>
 			<%= render 'shared/feed' %>	
 		</div>

@@ -1,5 +1,19 @@
+<%= form_tag ('/add') do  %>
+		<h1>Search: </h1>
+      <%= label_tag 'query', 'Restaurant' %>
+      <%= text_field_tag 'query' %>
+
+      <%= label_tag 'location', 'Near' %>
+      <%= text_field_tag 'location'%>
+     
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+    
+
+<% end %>
+
+
 <%= form_for(@restaurant) do |f| %>
-<h2>Add Restaurant</h2>
+<h2>Add Restaurant:</h2>
 	<%= render 'shared/error_messages', object: f.object %>
 	
 	<%= f.label :name %>
