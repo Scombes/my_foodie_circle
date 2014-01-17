@@ -19,6 +19,8 @@ gem 'foursquare2'
 
 gem 'yajl-ruby'
 
+gem 'httparty'
+
 group :development, :test do
 	gem 'rspec-rails', '2.13.1'
 end

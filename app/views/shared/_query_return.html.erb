@@ -1,6 +1,14 @@
-<h2> Results: <%= @query %> near <%=  @near %> </h2>
+<h2> Results: <%= @query %></h2>
+
+<ol class="recomendations">
+<% @response['results'].each do |r| %>
+
+<li>
+	<span class="business_name"><%= r['name'] %></span>
+	<span class="business_infor"><%= r['formatted_address'] %></span>
+	<span class="delete">more</span>
+</li>
+<% end %>
+</ol>
 
 
-
-
-<%= @response %>
