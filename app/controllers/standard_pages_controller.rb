@@ -1,4 +1,5 @@
 class StandardPagesController < ApplicationController
+  require "rest-client"
   def home
   	if signed_in?
   	@restaurant = current_user.restaurants.build
@@ -10,6 +11,8 @@ class StandardPagesController < ApplicationController
     if @query != nil
       @query_plused=params[:query].tr(' ', '+')
       @response= HTTParty.get('https://maps.googleapis.com/maps/api/place/textsearch/json?query='+@query_plused+'&sensor=false&key=AIzaSyCpcL-60e_blJaX4hV3H-Uc-TPPhfISOQg')
+      RestClient.proxy = ENV["PROXIMO_URL"] if ENV['PROXIMO_URL']
+      @response = RestClient.get(@response)
     end
     if @restaurant_id != nil
       @restaurant_detail= HTTParty.get('https://maps.googleapis.com/maps/api/place/details/json?reference='+@restaurant_id+'&sensor=false&key=AIzaSyCpcL-60e_blJaX4hV3H-Uc-TPPhfISOQg')
