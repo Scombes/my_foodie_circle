@@ -14,7 +14,7 @@
 		<div class="col-md-8">
 			<%= render 'follow_form' if signed_in? %>
 			<% if @user.restaurants.any? %>
-			<h3>My Reccomendations (<%= @user.restaurants.count %>)</h3>
+			<h3>My Recommendations (<%= @user.restaurants.count %>)</h3>
 			<ol class='recomendations'>
 				<%= render @restaurants %>
 			</ol>

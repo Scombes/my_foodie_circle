@@ -1,13 +1,15 @@
 <li id="<%= feed_item.id %>">
 <div class="row">
-	<div class="col-md-2">
+
+	<div class="col-md-3">
+		<span class="user_name pull-left"><%= feed_item.user.name %> </span><br />
 		<span class="feed_gravatar"><%= link_to gravatar_for(feed_item.user), feed_item.user %></span>
 	</div>
 	<div class="col-md-5">
-		<span class="user_name"><%= feed_item.user.name %> reccomends:</span>
+		
 		<span class="business_name"><%= feed_item.name %></span>
-		<span class="category">Type: <%= feed_item.category %></span>
-		<span class="business_info"><%= feed_item.address %> <%= feed_item.city %>, <%= feed_item.state %> <%= feed_item.postal %></span>
+		<span class="category"><small> <%= feed_item.category %></small></span>
+		<span class="business_info"><a href="http://maps.google.com/?q=<%= feed_item.address %> <%= feed_item.city %>, <%= feed_item.state %> <%= feed_item.postal %>"><%= feed_item.address %><br /> <%= feed_item.city %>, <%= feed_item.state %> <%= feed_item.postal %></a></span>
 		<span class="phone"><%= feed_item.phone %></span>
 	</div>
 	

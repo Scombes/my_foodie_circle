@@ -1,3 +1,5 @@
+	<%= @restaurant_detail %>
+
 	<%= form_for(@restaurant) do |f| %>
 
 	<h2>Add Note and Edit:</h2>
@@ -28,6 +30,6 @@
 	<%= f.text_area :note%>
 
 	<%= f.submit "Add", class: "btn btn-primary" %>
-	<% end %>
+	<% end %> 
 
 

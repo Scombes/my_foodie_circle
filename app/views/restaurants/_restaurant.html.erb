@@ -1,8 +1,20 @@
 <li>
-	<span class="business_name"><%= restaurant.name %></span>
-	<span class="business_infor"><%= restaurant.address %> <%= restaurant.city %>, <%= restaurant.state %> <%= restaurant.postal %></span>
-	<span class="phone"><%= restaurant.phone %></span>
-	<span class="category"><%= restaurant.category %></span>
-	<span class="notes"><%= restaurant.note %></span></br />
-	<span class="timestamp">Posted <%= time_ago_in_words(restaurant.created_at) %> ago.</span>
-</li>
+<div class="row">
+
+	<div class="col-md-8">
+		
+			<span class="business_name"><%= restaurant.name %></span>
+			<span class="category"><small><%= restaurant.category %></small></span>
+			<span class="business_info"><a href="http://maps.google.com/?q=<%= restaurant.address %> <%= restaurant.city %>, <%= restaurant.state %> <%= restaurant.postal %>" > <%= restaurant.address %> <%= restaurant.city %>, <%= restaurant.state %> <%= restaurant.postal %></a></span>
+			<span class="phone"><%= restaurant.phone %></span>
+			<span class="notes"><%= restaurant.note %></span><br />
+			<span class="timestamp"><small>Posted <%= time_ago_in_words(restaurant.created_at) %> ago.</small></span><br />
+			<% if current_user?(restaurant.user) %>
+			<span ><%= link_to "delete", restaurant, method: :delete,
+                                     data: { confirm: "You sure?" },
+                                     title: restaurant.name %></span>
+    		<% end %>
+    </div>
+</div>
+</li> 
+

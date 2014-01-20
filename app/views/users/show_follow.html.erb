@@ -3,18 +3,15 @@
 	<div class="row">
 		<aside class="col-md-4">
 			<section>
-				<h3>
+				
 					<%= gravatar_for @user %>
-					<%= @user.name %>
-					<span><%= link_to "view my profile", @user %></span>
-      				<span><b>Restaurants:</b> <%= @user.restaurants.count %></span>
-				</h3>
+					<h1><%= @user.name %></h1>
+					<span><%= link_to "View my profile", @user %></span>
+      				<h4><span>Restaurants: <%= @user.restaurants.count %></span></h4>
+					<%= render 'shared/followers_stats' %>
 				
 			</section>
-			<section>
-      			<%= render 'shared/followers_stats' %>
-      			
-    		</section>
+			
 		</aside>
 
 		<div class="col-md-8">
