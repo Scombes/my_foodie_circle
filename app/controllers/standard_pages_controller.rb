@@ -1,4 +1,3 @@
-
 class StandardPagesController < ApplicationController
   def home
   	if signed_in?
@@ -7,10 +6,15 @@ class StandardPagesController < ApplicationController
   	end
     @near=params[:location]
     @query=params[:query]
+    @restaurant_id=params[:restaurant_id]
     if @query != nil
       @query_plused=params[:query].tr(' ', '+')
-      @response= HTTParty.get('https://maps.googleapis.com/maps/api/place/textsearch/json?query='+@query_plused+'&sensor=false&key=AIzaSyAM451AbVOyNCPwVgwzzawgW65WE1lA7Wg')
+      @response= HTTParty.get('https://maps.googleapis.com/maps/api/place/textsearch/json?query='+@query_plused+'&sensor=false&key=AIzaSyCpcL-60e_blJaX4hV3H-Uc-TPPhfISOQg')
     end
+    if @restaurant_id != nil
+      @restaurant_detail= HTTParty.get('https://maps.googleapis.com/maps/api/place/details/json?reference='+@restaurant_id+'&sensor=false&key=AIzaSyCpcL-60e_blJaX4hV3H-Uc-TPPhfISOQg')
+    end
+    
   end
 
   def contact

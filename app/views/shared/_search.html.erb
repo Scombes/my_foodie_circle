@@ -1,0 +1,12 @@
+<h1>Search Results:</h1>
+<ul class="users top-margin">
+	<% @search.each do |user| %>
+   		<li><%= gravatar_for user, size: 52, class: "gravatar" %>
+   		<%= link_to user.name, user %>
+   		 <% if current_user.admin? && !current_user?(user) %> | 
+   		 <%= link_to "delete", user, method: :delete,
+                                  data: { confirm: "You sure?" } %>
+        <% end %>
+        </li><br />
+  		<% end %>
+</ul>

@@ -21,6 +21,8 @@ gem 'yajl-ruby'
 
 gem 'httparty'
 
+gem 'searchkick'
+
 group :development, :test do
 	gem 'rspec-rails', '2.13.1'
 end

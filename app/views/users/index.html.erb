@@ -3,11 +3,19 @@
 <div id="container wb">
 		<div id="margin-fix" class="container">
 			<div class="row centered">
-				<h1>All Users</h1>
+				<h1>Search Users</h1>
+				<%= form_tag users_path, method: :get do  %>
+    				<%= text_field_tag :search_query, params[:search_query], class: "span2" %>
+    				<%= submit_tag "Search", :name => nil, class: "btn btn-primary" %>
+    				<% end %>
 			</div>
 			
 			<div class="row">
 				<div class="col-md-6">	
+					<% if params[:search_query].present? %>
+      					<%= render 'shared/search' %>
+  					<% end %>
+  					<h1> All Users</h1>
 					<%= will_paginate %>
 					<ul class="users">
   					<% @users.each do |user| %>

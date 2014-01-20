@@ -514,7 +514,7 @@ $grayMediumLight: #eaeaea;
                     }
 .business_name, .business_info, .phone, .category, .note, .delete { display: block;}
 
-.business_name {
+.business_name, .user_name {
               font-weight: bold;
               }
 .category {
@@ -523,3 +523,9 @@ $grayMediumLight: #eaeaea;
 .feed_gravatar {float: left;
                 margin: 10px;}
 .top-margin {margin-top: 10px;}
+
+
+/* user avatars */
+.user_avatar{margin: 10px;
+
+            }

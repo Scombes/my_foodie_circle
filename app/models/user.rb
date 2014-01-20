@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  searchkick
   has_many :restaurants, dependent: :destroy
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy
   has_many :followed_users, through: :relationships, source: :followed
@@ -45,4 +46,6 @@ class User < ActiveRecord::Base
   	def create_remember_token
   		self.remember_token = User.encrypt(User.new_remember_token )
   	end
+
+    
 end

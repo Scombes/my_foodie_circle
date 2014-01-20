@@ -4,6 +4,11 @@ class UsersController < ApplicationController
   before_action :admin_user, only: :destroy
   def index
     @users = User.paginate(page: params[:page])
+    if params[:search_query].present?
+      @search = User.search(params[:search_query], page: params[:page])
+    else
+      @search = User.all.page params[:page]
+    end
   end
 
   def new

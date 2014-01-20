@@ -3,5 +3,6 @@
 	<span class="business_infor"><%= restaurant.address %> <%= restaurant.city %>, <%= restaurant.state %> <%= restaurant.postal %></span>
 	<span class="phone"><%= restaurant.phone %></span>
 	<span class="category"><%= restaurant.category %></span>
+	<span class="notes"><%= restaurant.note %></span></br />
 	<span class="timestamp">Posted <%= time_ago_in_words(restaurant.created_at) %> ago.</span>
 </li>

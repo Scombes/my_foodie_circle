@@ -10,6 +10,8 @@ MyFoodieCircle::Application.routes.draw do
   root 'standard_pages#home' 
   match '/add', to: 'standard_pages#home', via: 'post'
   match '/add', to: 'standard_pages#home', via: 'get'
+  match '/restaurant_add', to: 'standard_pages#home', via: 'post'
+  match '/restaurant_add', to: 'standard_pages#home', via: 'get'
   match '/contact', to: 'standard_pages#contact', via: 'get'
   match '/help', to: 'standard_pages#help', via: 'get'
   match '/signup', to: 'users#new', via: 'get'

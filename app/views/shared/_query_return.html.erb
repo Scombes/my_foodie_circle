@@ -1,15 +1,17 @@
 <h2> Results: <%= @query %></h2>
 
 <ol class="recomendations">
-<% @response['results'].each do |r| %>
+	<% @response['results'].each do |r| %>
 
-<li>
-	<span class="business_name"><%= r['name'] %></span>
-	<span class="business_infor"><%= r['formatted_address'] %></span>
-	<span class="delete">more</span>
-	<%= submit_tag "Add", class: "btn btn-primary" %>
-</li>
-<% end %>
+			<%=form_tag('/restaurant_add') do %>
+
+	<li>
+		<span class="business_name"><%= r['name'] %></span>
+		<span class="business_info"><%= r['formatted_address'] %></span>
+			<%= hidden_field_tag 'restaurant_id', r['reference'] %>
+			<%= submit_tag "Add", class: "btn btn-primary" %>
+			<% end %>
+	</li>
+	<% end %>
 </ol>
-
 
