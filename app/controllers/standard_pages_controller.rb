@@ -10,15 +10,13 @@ class StandardPagesController < ApplicationController
     @restaurant_id=params[:restaurant_id]
     if @query != nil
       @query_plused=params[:query].tr(' ', '+')
-      @response= HTTParty.get('https://maps.googleapis.com/maps/api/place/textsearch/json?query='+@query_plused+'&sensor=false&key=AIzaSyCpcL-60e_blJaX4hV3H-Uc-TPPhfISOQg')
       RestClient.proxy = ENV["PROXIMO_URL"] if ENV["PROXIMO_URL"]
-      @response = RestClient.get('https://maps.googleapis.com/maps/api/place/textsearch/json?query='+@query_plused+'&sensor=false&key=AIzaSyCpcL-60e_blJaX4hV3H-Uc-TPPhfISOQg')
+      @response = RestClient.get('https://maps.googleapis.com/maps/api/place/textsearch/json?query='+@query_plused+'&sensor=false&key='+api_key)
       @response = JSON.parse(@response)
     end
     if @restaurant_id != nil
-      @restaurant_detail= HTTParty.get('https://maps.googleapis.com/maps/api/place/details/json?reference='+@restaurant_id+'&sensor=false&key=AIzaSyCpcL-60e_blJaX4hV3H-Uc-TPPhfISOQg')
       RestClient.proxy = ENV["PROXIMO_URL"] if ENV["PROXIMO_URL"]
-      @restaurant_detail= RestClient.get('https://maps.googleapis.com/maps/api/place/details/json?reference='+@restaurant_id+'&sensor=false&key=AIzaSyCpcL-60e_blJaX4hV3H-Uc-TPPhfISOQg')
+      @restaurant_detail= RestClient.get('https://maps.googleapis.com/maps/api/place/details/json?reference='+@restaurant_id+'&sensor=false&key='+api_key)
       @restaurant_detail= JSON.parse(@restaurant_detail)
     end
     
@@ -28,6 +26,12 @@ class StandardPagesController < ApplicationController
   end
 
   def help
+  end
+
+  private
+
+  def api_key
+    api_key="AIzaSyCpcL-60e_blJaX4hV3H-Uc-TPPhfISOQg"
   end
 end
  
